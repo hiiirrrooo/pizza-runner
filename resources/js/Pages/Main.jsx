@@ -1,7 +1,7 @@
 import React from 'react'
 import Router from '../Router/Router'
 
-const Home = () => {
+const Main = () => {
     return (
         <div>
             <Router />
@@ -9,4 +9,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Main

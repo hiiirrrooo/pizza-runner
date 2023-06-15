@@ -1,17 +1,18 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Unique Customers</title>
+    <title>Reports</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/135e9c29ad.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
 
     <!-- navbar -->
 
@@ -68,38 +69,44 @@
         </div>
     </nav>
 
-    <!-- table -->
-    <div class="container-md mt-2">
-        <h1>Unique Customers</h1>
-
-        <table class="table table-primary table-striped">
-            <thead class="fs-5">
+    <!-- main -->
+    <div class="container mt-2 mx-5">
+        <h1>Reports</h1>
+        <table class="table fs-4">
+            <thead>
                 <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Customer ID</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Order Date</th>
-
-
+                    <th scope="col">#</th>
+                    <th scope="col">Table Name</th>
                 </tr>
             </thead>
-            <tbody class="fs-5">
-                @foreach($uniques as $unique)
+            <tbody>
                 <tr>
-                    <th scope="row">{{$unique['OrderID']}}</th>
-                    <td>{{$unique['CustID']}}</td>
-                    <td>{{$unique['CustName']}}</td>
-                    <td>{{$unique['DateOrdered']}}</td>
+                    <th scope="row">1</th>
+                    <td>
+                        <form action="/admin/reports/sales">
+                            <button style="border: none; background-color: white; color: blue;">Daily Sales</button>
+                        </form>
+                    </td>
                 </tr>
-                @endforeach
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <form action="/admin/reports/pizza">
+                            <button style="border: none; background-color: white; color: blue;">Pizzas Sold Per Day</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <form action="/admin/reports/unique">
+                            <button style="border: none; background-color: white; color: blue;">Unique Customers</button>
+                        </form>
+                    </td>
+                </tr>
             </tbody>
-
         </table>
-        <form action="/admin/reports">
-            <button class="btn btn-link">Return to Reports</button>
+        <form action="/admin/dashboard">
+            <button class="btn btn-link">Return to Dashboard</button>
         </form>
     </div>
-
-</body>
-
-</html>

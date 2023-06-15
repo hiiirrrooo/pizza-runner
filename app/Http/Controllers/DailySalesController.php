@@ -9,6 +9,6 @@ class DailySalesController extends Controller
 {
     function show() {
         $data = DailySale::all();
-        return view('list',['sales'=>$data]);
+        return view('sales',['sales'=>$data]);
     }
 }

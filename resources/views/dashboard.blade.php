@@ -1,12 +1,40 @@
-<!doctype html>
+<!-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+    </head>
+    <body>
+        <div>
+            <form action='/admin/sales'>
+                <input type='submit' value='Daily Sales'>
+            </form>
+            <form action='/admin/pizza'>
+                <input type='submit' value='Pizza Count'>
+            </form>
+            <form action='/admin/unique'>
+                <input type='submit' value='Unique Customers'>
+            </form>
+            <form action='/admin/successful'>
+                <input type='submit' value='Successful Orders'>
+            </form>
+            <form action='/admin/cancelled'>
+                <input type='submit' value='Cancelled Orders'>
+            </form>
+        </div>
+    </body>
+</html> -->
+<!doctype html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Unique Customers</title>
+    <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/135e9c29ad.js" crossorigin="anonymous"></script>
 </head>
@@ -68,36 +96,34 @@
         </div>
     </nav>
 
-    <!-- table -->
-    <div class="container-md mt-2">
-        <h1>Unique Customers</h1>
+    <!-- main -->
+    <div class="container px-4 text-center">
+        <h1 class="mb-5 mt-2">Welcome Admin!</h1>
+        <div class="row d-flex justify-content-center gx-5">
+            <form action='/admin/orders'>
+                <button style="border: none; background-color: white;" class="col-3">
+                    <div style="height:200px;" class="d-flex flex-column align-items-center text-bg-primary p-3">
+                        <div style="font-size: 75px;"><i class="fa-solid fa-cart-shopping"></i></div>
+                        <div class="mt-2">ORDERS</div>
+                    </div>
+                </button>
+            </form>
+            <form action='/admin/reports'>
+                <button style="border: none; background-color: white;" class="col-3">
+                    <div style="height:200px;" class="d-flex flex-column align-items-center text-bg-primary p-3">
+                        <div style="font-size: 75px;"><i class="fa-solid fa-clipboard"></i></div>
+                        <div class="mt-2">REPORTS</div>
+                    </div>
+                </button>
+            </form>
 
-        <table class="table table-primary table-striped">
-            <thead class="fs-5">
-                <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Customer ID</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Order Date</th>
-
-
-                </tr>
-            </thead>
-            <tbody class="fs-5">
-                @foreach($uniques as $unique)
-                <tr>
-                    <th scope="row">{{$unique['OrderID']}}</th>
-                    <td>{{$unique['CustID']}}</td>
-                    <td>{{$unique['CustName']}}</td>
-                    <td>{{$unique['DateOrdered']}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-
-        </table>
-        <form action="/admin/reports">
-            <button class="btn btn-link">Return to Reports</button>
-        </form>
+            <button style="border: none; background-color: white;" class="col-3">
+                <div style="height:200px;" class="d-flex flex-column align-items-center text-bg-primary p-3">
+                    <div style="font-size: 75px;"><i class="fa-solid fa-database"></i></div>
+                    <div>DATA MART</div>
+                </div>
+            </button>
+        </div>
     </div>
 
 </body>

@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\DailySalesController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DailySalesController;
 use App\Http\Controllers\PizzaCountsController;
 use App\Http\Controllers\UniqueCustomersController;
 use App\Http\Controllers\SuccessfulOrdersController;
@@ -25,13 +26,20 @@ Route::get('/', function () {
 
 Route::post('/submit', [OrderController::class, 'store']);
 
-Route::get('list', [DailySalesController::class, 'show']);
+Route::get('/admin/dashboard', [DashboardController::class, 'show']);
+Route::get('/admin/orders', [DashboardController::class, 'showOrders']);
+Route::get('/admin/reports', [DashboardController::class, 'showReports']);
 
-Route::get('pizza', [PizzaCountsController::class, 'show']);
+Route::get('/admin/orders/successful', [SuccessfulOrdersController::class, 'show']);
 
-Route::get('unique', [UniqueCustomersController::class, 'show']);
+Route::get('/admin/orders/cancelled', [CancelledOrdersController::class, 'show']);
 
-Route::get('successful', [SuccessfulOrdersController::class, 'show']);
+Route::any('/admin/reports/sales', [DailySalesController::class, 'show']);
 
-Route::get('cancelled', [CancelledOrdersController::class, 'show']);
+Route::get('/admin/reports/pizza', [PizzaCountsController::class, 'show']);
 
+Route::get('/admin/reports/unique', [UniqueCustomersController::class, 'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

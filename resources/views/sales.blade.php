@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Unique Customers</title>
+    <title>Daily Sales</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/135e9c29ad.js" crossorigin="anonymous"></script>
 </head>
@@ -69,31 +69,24 @@
     </nav>
 
     <!-- table -->
-    <div class="container-md mt-2">
-        <h1>Unique Customers</h1>
+    <div class="container mt-2">
+        <h1>Daily Sales</h1>
 
         <table class="table table-primary table-striped">
-            <thead class="fs-5">
+            <thead class="fs-4">
                 <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Customer ID</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Order Date</th>
-
-
+                    <th scope="col">Date</th>
+                    <th scope="col">Pizza Sold</th>
                 </tr>
             </thead>
             <tbody class="fs-5">
-                @foreach($uniques as $unique)
+            @foreach($sales as $sale)
                 <tr>
-                    <th scope="row">{{$unique['OrderID']}}</th>
-                    <td>{{$unique['CustID']}}</td>
-                    <td>{{$unique['CustName']}}</td>
-                    <td>{{$unique['DateOrdered']}}</td>
+                    <th scope="row">{{$sale['Dates']}}</th>
+                    <td>{{$sale['Pizzas_Sold']}}</td>
                 </tr>
-                @endforeach
+            @endforeach
             </tbody>
-
         </table>
         <form action="/admin/reports">
             <button class="btn btn-link">Return to Reports</button>

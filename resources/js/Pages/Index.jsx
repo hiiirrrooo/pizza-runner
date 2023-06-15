@@ -5,16 +5,17 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
   const navigate = useNavigate();
   const login = () => {
-    navigate('/pages/signin')
+    navigate('/signin')
   }
   const newOrder = () => {
-    navigate('/pages/order')
+    navigate('/order')
 
   }
     return (
         <div>
             <Button onClick={()=>login()}>Log in</Button>
             <Button onClick={()=>newOrder()}>Order </Button>
+            
         </div>
     )
 }
